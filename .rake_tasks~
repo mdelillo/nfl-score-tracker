@@ -1,8 +1,4 @@
 about
-assets:clean
-assets:clobber
-assets:environment
-assets:precompile
 cache_digests:dependencies
 cache_digests:nested_dependencies
 db:_dump
@@ -47,6 +43,7 @@ db:test:load_structure
 db:test:prepare
 db:test:purge
 db:version
+default
 doc
 doc/app
 doc/app/created.rid
@@ -75,7 +72,14 @@ rails:update:bin
 rails:update:configs
 railties:install:migrations
 routes
+rubocop
+rubocop:auto_correct
 secret
+spec
+spec:models
+spec:prepare
+spec:requests
+spec:statsetup
 stats
 time:zones:all
 time:zones:local
