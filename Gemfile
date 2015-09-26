@@ -16,3 +16,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+end
