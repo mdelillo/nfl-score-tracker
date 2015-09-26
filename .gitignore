@@ -20,3 +20,5 @@ config/secrets.yml
 
 # Ignore pow environment settings
 .powenv
+
+NERD_TREE_*
