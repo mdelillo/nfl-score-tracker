@@ -1,3 +1,4 @@
-task default: [
-  :spec
-]
+task default: %i(
+  rubocop
+  spec
+)
