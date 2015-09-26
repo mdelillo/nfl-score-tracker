@@ -7,16 +7,10 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  #   # Allows RSpec to persist some state between runs in order to support
-  #   # the `--only-failures` and `--next-failure` CLI options. We recommend
-  #   # you configure your source control system to ignore this file.
-  #   config.example_status_persistence_file_path = "spec/examples.txt"
-  #
-  #   if config.files_to_run.one?
-  #     config.default_formatter = 'doc'
-  #   end
-  #
-  #   config.order = :random
-  #
-  #   Kernel.srand config.seed
+  config.example_status_persistence_file_path = 'spec/examples.txt'
+
+  config.default_formatter = 'doc' if config.files_to_run.one?
+
+  config.order = :random
+  Kernel.srand(config.seed)
 end
