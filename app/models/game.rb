@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  validates :game_center_id, presence: true
+  validates :game_center_id, presence: true, uniqueness: true
 
   def winner
     return unless ended?
