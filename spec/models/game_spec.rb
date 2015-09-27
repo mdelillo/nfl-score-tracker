@@ -6,13 +6,7 @@ describe Game do
   end
 
   describe '#winner' do
-    let(:game) do
-      Game.new(
-        game_center_id: '2001010100',
-        home_team: 'NYG',
-        away_team: 'DAL'
-      )
-    end
+    let(:game) { FactoryGirl.create(:game, home_team: 'NYG', away_team: 'DAL') }
 
     context 'when the game has ended' do
       before do

@@ -7,6 +7,7 @@ gem 'pg'
 gem 'rails-api'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
