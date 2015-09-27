@@ -10,3 +10,6 @@ AllCops:
     - 'public/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
+
+Style/Documentation:
+  Enabled: false
