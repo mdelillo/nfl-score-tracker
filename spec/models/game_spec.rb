@@ -10,6 +10,17 @@ describe Game do
     it { is_expected.to validate_uniqueness_of :game_center_id }
   end
 
+  describe 'scopes' do
+    describe '.in_progress' do
+      it 'returns game that have not ended' do
+        FactoryGirl.create(:game, ended: true)
+        in_progress_game = FactoryGirl.create(:game, ended: false)
+
+        expect(Game.in_progress).to eq [in_progress_game]
+      end
+    end
+  end
+
   describe '#winner' do
     let(:game) { FactoryGirl.create(:game, home_team: 'NYG', away_team: 'DAL') }
 

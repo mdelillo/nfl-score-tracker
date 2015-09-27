@@ -3,6 +3,8 @@ class Game < ActiveRecord::Base
 
   validates :game_center_id, presence: true, uniqueness: true
 
+  scope :in_progress, -> { where(ended: false) }
+
   def winner
     return unless ended?
 
