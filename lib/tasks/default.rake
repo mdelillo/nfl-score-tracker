@@ -1,4 +1,4 @@
-task default: %i(
+task(:default).clear.enhance(%w(
   rubocop
   spec
-)
+))
