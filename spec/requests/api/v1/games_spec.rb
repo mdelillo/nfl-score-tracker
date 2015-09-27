@@ -33,4 +33,26 @@ describe 'Games' do
       end
     end
   end
+
+  describe 'DELETE /api/v1/games/:id' do
+    context 'when the game exists' do
+      it 'deletes the game' do
+        game = FactoryGirl.create(:game, game_center_id: 'game-1')
+
+        delete "/api/v1/games/#{game.id}"
+
+        expect(response.status).to eq 200
+        expect(json_body['game_center_id']).to eq 'game-1'
+      end
+    end
+
+    context 'when the game does not exist' do
+      it 'responds with 404' do
+        delete '/api/v1/games/non-existent'
+
+        expect(response.status).to eq 404
+        expect(json_body['error']).to eq "Couldn't find Game with 'id'=non-existent"
+      end
+    end
+  end
 end
