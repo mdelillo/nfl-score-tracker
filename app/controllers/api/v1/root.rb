@@ -9,6 +9,10 @@ module API
         error!(e.message, 404)
       end
 
+      rescue_from ActiveRecord::RecordInvalid do |e|
+        error!(e.message, 422)
+      end
+
       mount API::V1::Games
     end
   end

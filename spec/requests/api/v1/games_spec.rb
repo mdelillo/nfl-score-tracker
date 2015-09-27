@@ -15,21 +15,21 @@ describe 'Games' do
   end
 
   describe 'POST /api/v1/games' do
-    context 'using form-input params' do
+    context 'with valid parameters' do
       it 'creates a new game' do
-        post '/api/v1/games', game_center_id: 'game-1'
+        post '/api/v1/games', format: :json, game_center_id: 'game-1'
 
         expect(response.status).to eq 201
         expect(json_body['game_center_id']).to eq 'game-1'
       end
     end
 
-    context 'using JSON' do
-      it 'creates a new game' do
-        post '/api/v1/games', format: :json, game_center_id: 'game-1'
+    context 'with invalid parameters' do
+      it 'responds with 422' do
+        post '/api/v1/games', format: :json
 
-        expect(response.status).to eq 201
-        expect(json_body['game_center_id']).to eq 'game-1'
+        expect(response.status).to eq 422
+        expect(json_body['error']).to eq "Validation failed: Game Center ID can't be blank"
       end
     end
   end
