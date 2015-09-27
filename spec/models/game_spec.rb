@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Game do
   describe 'validations' do
     it { is_expected.to validate_presence_of :game_center_id }
+    it { is_expected.to validate_uniqueness_of :game_center_id }
   end
 
   describe '#winner' do
