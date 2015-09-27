@@ -24,3 +24,5 @@ en:
     attributes:
       game:
         game_center_id: 'Game Center ID'
+      score_event:
+        game_center_id: 'Game Center ID'
