@@ -3,6 +3,10 @@ class ScoreEvent < ActiveRecord::Base
 
   belongs_to :game
 
-  validates :game_center_id, :team_name, :type, :description,
+  validates :team_name, :type, :description,
             presence: true
+
+  validates :game_center_id,
+            presence: true,
+            uniqueness: { scope: :game_id }
 end
