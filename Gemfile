@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 
+gem 'clockwork'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem 'pg'
