@@ -6,6 +6,7 @@ gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem 'pg'
 gem 'rails-api'
+gem 'wisper', '2.0.0.rc1'
 
 group :development, :test do
   gem 'factory_girl_rails'
