@@ -48,6 +48,9 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    clockwork (1.2.0)
+      activesupport
+      tzinfo
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -194,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  clockwork
   factory_girl_rails
   grape
   hashie-forbidden_attributes
