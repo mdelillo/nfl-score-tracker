@@ -6,12 +6,14 @@ gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem 'pg'
 gem 'rails-api'
+gem 'wisper', '2.0.0.rc1'
 
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'wisper-rspec', require: false
 end
 
 group :development do
