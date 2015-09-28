@@ -13,7 +13,6 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'wisper-rspec', require: false
 end
 
 group :development do

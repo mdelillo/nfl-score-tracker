@@ -132,7 +132,11 @@ describe UpdateGame do
         end
 
         it 'does not broadcast an event' do
-          expect { update_game.call }.not_to broadcast(:new_score_event)
+          allow(update_game).to receive(:broadcast)
+
+          update_game.call
+
+          expect(update_game).not_to have_received(:broadcast)
         end
       end
     end

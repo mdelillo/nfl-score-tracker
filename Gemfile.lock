@@ -189,7 +189,6 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
     wisper (2.0.0.rc1)
-    wisper-rspec (0.0.2)
 
 PLATFORMS
   ruby
@@ -209,7 +208,6 @@ DEPENDENCIES
   spring
   webmock
   wisper (= 2.0.0.rc1)
-  wisper-rspec
 
 BUNDLED WITH
    1.10.6
