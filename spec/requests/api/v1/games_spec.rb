@@ -14,6 +14,29 @@ describe 'Games' do
     end
   end
 
+  describe 'GET /api/v1/games/:id' do
+    context 'when the game exists' do
+      it 'returns single game' do
+        game = FactoryGirl.create(:game, game_center_id: 'game-1')
+
+        get "/api/v1/games/#{game.id}"
+
+        expect(response.status).to eq 200
+        expect(json_body['game_center_id']).to eq 'game-1'
+        expect(json_body['winner']).to eq nil
+      end
+    end
+
+    context 'when the game does not exist' do
+      it 'responds with 404' do
+        get '/api/v1/games/non-existent'
+
+        expect(response.status).to eq 404
+        expect(json_body['error']).to eq "Couldn't find Game with 'id'=non-existent"
+      end
+    end
+  end
+
   describe 'POST /api/v1/games' do
     context 'with valid parameters' do
       it 'creates a new game' do

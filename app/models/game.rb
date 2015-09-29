@@ -1,4 +1,6 @@
 class Game < ActiveRecord::Base
+  include Grape::Entity::DSL
+
   has_many :score_events, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 
@@ -14,5 +16,9 @@ class Game < ActiveRecord::Base
     elsif home_team_score < away_team_score
       away_team
     end
+  end
+
+  entity do
+    expose :id, :game_center_id, :home_team, :away_team, :home_team_score, :away_team_score, :ended, :winner
   end
 end

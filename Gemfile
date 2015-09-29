@@ -4,6 +4,7 @@ gem 'rails', '4.2.4'
 
 gem 'clockwork'
 gem 'grape'
+gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'pg'
 gem 'rails-api'

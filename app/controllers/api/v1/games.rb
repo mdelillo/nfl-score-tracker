@@ -7,6 +7,11 @@ module API
           Game.all
         end
 
+        desc 'Return a game'
+        get ':id' do
+          present Game.find(params[:id])
+        end
+
         desc 'Create a new game'
         post do
           Game.create!(game_center_id: params[:game_center_id])

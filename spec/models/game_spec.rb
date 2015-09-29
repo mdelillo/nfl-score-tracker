@@ -63,4 +63,21 @@ describe Game do
       end
     end
   end
+
+  describe Game::Entity do
+    subject { Game::Entity.new(Game.new) }
+
+    it 'exposes fields of the game' do
+      expect(subject.exposures.keys).to match_array(%i(
+        id
+        game_center_id
+        home_team
+        away_team
+        home_team_score
+        away_team_score
+        ended
+        winner
+      ))
+    end
+  end
 end

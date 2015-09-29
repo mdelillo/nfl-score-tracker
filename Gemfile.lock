@@ -79,6 +79,9 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
+    grape-entity (0.4.8)
+      activesupport
+      multi_json (>= 1.3.2)
     hashie (3.4.2)
     hashie-forbidden_attributes (0.1.1)
       hashie (>= 3.0)
@@ -200,6 +203,7 @@ DEPENDENCIES
   clockwork
   factory_girl_rails
   grape
+  grape-entity
   hashie-forbidden_attributes
   pg
   pry
