@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Game do
   describe 'associations' do
     it { is_expected.to have_many(:score_events).dependent(:destroy) }
+    it { is_expected.to have_many(:subscriptions).dependent(:destroy) }
   end
 
   describe 'validations' do

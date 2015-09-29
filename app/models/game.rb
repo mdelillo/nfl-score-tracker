@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
   has_many :score_events, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 
   validates :game_center_id, presence: true, uniqueness: true
 
