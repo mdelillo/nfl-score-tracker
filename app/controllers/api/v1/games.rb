@@ -4,7 +4,7 @@ module API
       resource :games do
         desc 'Return all games'
         get do
-          Game.all
+          present Game.all
         end
 
         desc 'Return a game'
@@ -14,12 +14,12 @@ module API
 
         desc 'Create a new game'
         post do
-          Game.create!(game_center_id: params[:game_center_id])
+          present Game.create!(game_center_id: params[:game_center_id])
         end
 
         desc 'Delete a game'
         delete ':id' do
-          Game.destroy(params[:id])
+          present Game.destroy(params[:id])
         end
       end
     end

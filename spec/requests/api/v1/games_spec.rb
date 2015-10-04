@@ -11,6 +11,7 @@ describe 'Games' do
       expect(response.status).to eq 200
       game_center_ids = json_body.map { |game| game['game_center_id'] }
       expect(game_center_ids).to eq %w(game-1 game-2)
+      expect(json_body.first).to have_key('winner')
     end
   end
 
@@ -23,7 +24,7 @@ describe 'Games' do
 
         expect(response.status).to eq 200
         expect(json_body['game_center_id']).to eq 'game-1'
-        expect(json_body['winner']).to eq nil
+        expect(json_body).to have_key('winner')
       end
     end
 
@@ -44,6 +45,7 @@ describe 'Games' do
 
         expect(response.status).to eq 201
         expect(json_body['game_center_id']).to eq 'game-1'
+        expect(json_body).to have_key('winner')
       end
     end
 
@@ -66,6 +68,7 @@ describe 'Games' do
 
         expect(response.status).to eq 200
         expect(json_body['game_center_id']).to eq 'game-1'
+        expect(json_body).to have_key('winner')
       end
     end
 
