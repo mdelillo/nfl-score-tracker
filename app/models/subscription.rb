@@ -1,5 +1,11 @@
 class Subscription < ActiveRecord::Base
+  include Grape::Entity::DSL
+
   belongs_to :game
 
-  validates :type, presence: true
+  validates :game, :type, presence: true
+
+  entity do
+    expose :id, :type, :args, :game_id
+  end
 end

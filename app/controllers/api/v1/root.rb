@@ -14,6 +14,7 @@ module API
       end
 
       mount API::V1::Games
+      mount API::V1::Subscriptions
     end
   end
 end
