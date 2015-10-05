@@ -24,5 +24,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'simple_bdd'
   gem 'webmock'
 end

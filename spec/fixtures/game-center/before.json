@@ -1,0 +1,76 @@
+{
+    "2015092400": {
+        "away": {
+            "abbr": "WAS",
+            "players": null,
+            "score": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "T": 0
+            },
+            "stats": {
+                "team": {
+                    "pen": 0,
+                    "penyds": 0,
+                    "pt": 0,
+                    "ptavg": 0,
+                    "ptyds": 0,
+                    "pyds": 0,
+                    "ryds": 0,
+                    "top": "0:00",
+                    "totfd": 0,
+                    "totyds": 0,
+                    "trnovr": 0
+                }
+            },
+            "to": 3
+        },
+        "clock": "15:00",
+        "down": 0,
+        "drives": {
+            "crntdrv": 0
+        },
+        "home": {
+            "abbr": "NYG",
+            "players": null,
+            "score": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "T": 0
+            },
+            "stats": {
+                "team": {
+                    "pen": 0,
+                    "penyds": 0,
+                    "pt": 0,
+                    "ptavg": 0,
+                    "ptyds": 0,
+                    "pyds": 0,
+                    "ryds": 0,
+                    "top": "0:00",
+                    "totfd": 0,
+                    "totyds": 0,
+                    "trnovr": 0
+                }
+            },
+            "to": 3
+        },
+        "media": null,
+        "note": null,
+        "posteam": "WAS",
+        "qtr": "Pregame",
+        "redzone": true,
+        "scrsummary": {},
+        "stadium": null,
+        "togo": 0,
+        "weather": null,
+        "yl": ""
+    },
+    "nextupdate": 2
+}
