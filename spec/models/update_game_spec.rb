@@ -88,17 +88,17 @@ describe UpdateGame do
       context 'when there are new score events' do
         let(:scrsummary) do
           {
-            '3' => {
-              'team' => 'NYG',
-              'type' => 'TD',
-              'desc' => 'Touchdown Giants!'
-            },
-            '4' => {
+            '100' => {
               'team' => 'DAL',
               'type' => 'FG',
               'desc' => 'Dallas field goal'
             },
-            '5' => {
+            '20' => {
+              'team' => 'NYG',
+              'type' => 'TD',
+              'desc' => 'Touchdown Giants!'
+            },
+            '300' => {
               'team' => 'NYG',
               'type' => 'SAF',
               'desc' => 'Giants safety'
@@ -112,8 +112,10 @@ describe UpdateGame do
 
         it 'creates a ScoreEvent for each new event' do
           expect { update_game.call }.to change { ScoreEvent.count }.by(2)
-          expect(ScoreEvent.find_by(game_center_id: '4').description).to eq 'Dallas field goal'
-          expect(ScoreEvent.find_by(game_center_id: '5').description).to eq 'Giants safety'
+          expect(ScoreEvent.where(game_center_id: '100')).to exist
+          expect(ScoreEvent.where(game_center_id: '300')).to exist
+          expect(ScoreEvent.find_by(game_center_id: '100').description).to eq 'Dallas field goal'
+          expect(ScoreEvent.find_by(game_center_id: '300').description).to eq 'Giants safety'
         end
 
         it 'broadcasts an event for each new event' do

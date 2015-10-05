@@ -32,8 +32,8 @@ class UpdateGame
   def ended(game_update)
     drives = game_update['drives'].reject { |id| id == 'crntdrv' }
 
-    game_ending_drives = drives.select do |_, drive|
-      game_ending_plays = drive['plays'].select do |_, play|
+    game_ending_drives = drives.select do |_drive_id, drive|
+      game_ending_plays = drive['plays'].select do |_play_id, play|
         play['desc'] == 'END GAME'
       end
 
@@ -47,9 +47,11 @@ class UpdateGame
     new_score_events = []
 
     updated_score_events = game_update['scrsummary']
-    if updated_score_events.keys.count > game.score_events.count
+    current_event_count = game.score_events.count
+    if updated_score_events.keys.count > current_event_count
       new_score_events = updated_score_events
-                         .drop(game.score_events.count)
+                         .sort_by { |k, _v| k.to_i }
+                         .drop(current_event_count)
                          .map { |k, v| v.merge('id' => k) }
     end
 
