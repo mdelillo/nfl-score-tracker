@@ -8,6 +8,7 @@ gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'pg'
 gem 'rails-api'
+gem 'washbullet'
 gem 'wisper', '2.0.0.rc1'
 
 group :development, :test do

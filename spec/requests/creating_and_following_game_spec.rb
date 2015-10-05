@@ -121,18 +121,26 @@ describe 'Creating and following game' do
   end
 
   def a_subscription_is_created_for_the_game
-    post '/api/v1/subscriptions', format: :json, game_id: @game_id, type: 'Subscriptions::Pushbullet'
+    post '/api/v1/subscriptions',
+         format: :json,
+         game_id: @game_id,
+         type: 'Subscriptions::Pushbullet',
+         args: {
+           access_token: 'hunter2',
+           receiver: 'device',
+           identifier: 'galaxy-s6'
+         }
   end
 
   def notifications_are_not_sent_for_previous_score_events
-    expect(a_request(:post, 'http://pushbullet.com/api-endpoint')).not_to have_been_made
+    expect(a_request(:post, 'https://api.pushbullet.com/v2/pushes')).not_to have_been_made
   end
 
   def all_games_are_updated_after_the_game_ends
     WebMock.reset!
     stub_request(:get, 'http://www.nfl.com/liveupdate/game-center/2015092400/2015092400_gtd.json')
       .to_return(body: read_fixture('game-center/final.json'))
-    stub_request(:post, 'http://pushbullet.com/api-endpoint')
+    stub_request(:post, 'https://api.pushbullet.com/v2/pushes')
 
     perform_enqueued_jobs do
       NflScoreTracker::GameUpdateService.update_games
@@ -140,7 +148,7 @@ describe 'Creating and following game' do
   end
 
   def notifications_are_sent_for_new_score_events
-    expect(a_request(:post, 'http://pushbullet.com/api-endpoint')).to have_been_made.times(3)
+    expect(a_request(:post, 'https://api.pushbullet.com/v2/pushes')).to have_been_made.times(3)
   end
 
   def the_game_score_is_updated_again
